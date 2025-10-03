@@ -93,20 +93,3 @@ function deletePeserta(id) {
     }
 }
 </script>
-eserta didik</h3>
-                <p>Mulai dengan menambahkan peserta didik baru</p>
-                <a href="index.php?action=create&page=peserta" class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Tambah Peserta
-                </a>
-            </div>
-        <?php endif; ?>
-    </div>
-</div>
-
-<script>
-function deletePeserta(id) {
-    if (confirm('Apakah Anda yakin ingin menghapus data peserta didik ini?')) {
-        window.location.href = 'index.php?action=delete&page=peserta&id=' + id;
-    }
-}
-</script>
