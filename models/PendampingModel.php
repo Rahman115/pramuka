@@ -85,16 +85,16 @@ class PendampingModel {
     }
 
     public function getByGudep($id_gudep) {
-        $query = "SELECT p.*, a.nama, a.jenis_kelamin, a.kontak 
-                  FROM " . $this->table_name . " p
-                  LEFT JOIN anggota a ON p.id_anggota = a.id_anggota
-                  WHERE p.id_gudep = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $id_gudep);
-        $stmt->execute();
-        
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    $query = "SELECT p.*, a.nama, a.jenis_kelamin, a.kontak 
+              FROM " . $this->table_name . " p
+              LEFT JOIN anggota a ON p.id_anggota = a.id_anggota
+              WHERE p.id_gudep = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(1, $id_gudep);
+    $stmt->execute();
+    
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
     public function countAll() {
         $query = "SELECT COUNT(*) as total FROM " . $this->table_name;

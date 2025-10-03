@@ -58,6 +58,9 @@ $num = $stmt->rowCount();
                                 </td>
                                 <td><?php echo date('d/m/Y', strtotime($tanggal_lahir)); ?></td>
                                 <td class="actions">
+                                 <a href="index.php?action=view&page=anggota&id=<?php echo $id_anggota; ?>" class="btn btn-info btn-sm">
+    <i class="fas fa-eye"></i>
+</a> 
                                     <a href="index.php?action=edit&page=peserta&id=<?php echo $id_peserta; ?>" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
@@ -74,6 +77,23 @@ $num = $stmt->rowCount();
             <div class="empty-state">
                 <i class="fas fa-user-graduate fa-3x"></i>
                 <h3>Belum ada data peserta didik</h3>
+                <p>Mulai dengan menambahkan peserta didik baru</p>
+                <a href="index.php?action=create&page=peserta" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Tambah Peserta
+                </a>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<script>
+function deletePeserta(id) {
+    if (confirm('Apakah Anda yakin ingin menghapus data peserta didik ini?')) {
+        window.location.href = 'index.php?action=delete&page=peserta&id=' + id;
+    }
+}
+</script>
+eserta didik</h3>
                 <p>Mulai dengan menambahkan peserta didik baru</p>
                 <a href="index.php?action=create&page=peserta" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Tambah Peserta

@@ -86,7 +86,9 @@ $totalPenegak = $pesertaDidikModel->countByGolongan('penegak');
             // Ambil data terbaru dari berbagai tabel
             $recentAnggota = $anggotaModel->readAll();
             $count = 0;
-            while ($row = $recentAnggota->fetch(PDO::FETCH_ASSOC) && $count < 3) {
+            
+            // Perbaikan: Pisahkan kondisi while
+            while ($count < 3 && $row = $recentAnggota->fetch(PDO::FETCH_ASSOC)) {
                 echo '<div class="activity-item">';
                 echo '<i class="fas fa-user-plus"></i>';
                 echo '<div class="activity-content">';
@@ -95,6 +97,23 @@ $totalPenegak = $pesertaDidikModel->countByGolongan('penegak');
                 echo '</div>';
                 echo '</div>';
                 $count++;
+            }
+            
+            // Jika tidak ada data anggota, tampilkan aktivitas dari tabel lain
+            if ($count == 0) {
+                // Coba ambil dari gudep
+                $recentGudep = $gudepModel->readAll();
+                $gudepCount = 0;
+                while ($gudepCount < 3 && $row = $recentGudep->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<div class="activity-item">';
+                    echo '<i class="fas fa-flag"></i>';
+                    echo '<div class="activity-content">';
+                    echo '<p>Gudep baru: <strong>' . htmlspecialchars($row['nama_gudep']) . '</strong> terdaftar</p>';
+                    echo '<span class="activity-time">' . date('d M Y', strtotime($row['created_at'])) . '</span>';
+                    echo '</div>';
+                    echo '</div>';
+                    $gudepCount++;
+                }
             }
             ?>
         </div>

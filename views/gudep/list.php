@@ -45,6 +45,9 @@ $num = $stmt->rowCount();
                                 <td><?php echo htmlspecialchars(substr($alamat, 0, 50)) . (strlen($alamat) > 50 ? '...' : ''); ?></td>
                                 <td><?php echo htmlspecialchars(substr($keterangan, 0, 30)) . (strlen($keterangan) > 30 ? '...' : ''); ?></td>
                                 <td class="actions">
+                                 <a href="index.php?action=view&page=anggota&id=<?php echo $id_anggota; ?>" class="btn btn-info btn-sm">
+    <i class="fas fa-eye"></i>
+</a> 
                                     <a href="index.php?action=view&page=gudep&id=<?php echo $id_gudep; ?>" class="btn btn-info btn-sm">
                                         <i class="fas fa-eye"></i>
                                     </a>

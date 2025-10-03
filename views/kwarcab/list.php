@@ -51,6 +51,9 @@ $num = $stmt->rowCount();
                                 </td>
                                 <td><?php echo htmlspecialchars($kontak); ?></td>
                                 <td class="actions">
+                                  <a href="index.php?action=view&page=anggota&id=<?php echo $id_anggota; ?>" class="btn btn-info btn-sm">
+    <i class="fas fa-eye"></i>
+</a>
                                     <a href="index.php?action=edit&page=kwarcab&id=<?php echo $id_kwarcab; ?>" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
